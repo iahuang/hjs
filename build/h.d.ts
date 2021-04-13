@@ -1,0 +1,215 @@
+declare namespace H {
+    export function marker(): Marker;
+    interface MarkRecord {
+        domNode: Node;
+        func: () => HTMLElement;
+    }
+    class Marker {
+        _id: string;
+        _domRecord: MarkRecord[];
+        constructor();
+        use(mark: () => HTMLElement): HTMLElement;
+        redraw(): void;
+    }
+    export class Component {
+        componentMarker: Marker;
+        constructor();
+        render(): HTMLElement;
+        _render(): HTMLElement;
+    }
+    export function _elementBuilder<T extends HTypes.HTMLGlobalProps>(tag: string): (a?: undefined) => HTMLElement;
+    export function _elementBuilder<T extends HTypes.HTMLGlobalProps>(tag: string): (a?: T) => (...args: any[]) => HTMLElement;
+    export function _noContentElementBuilder<T extends HTypes.HTMLGlobalProps>(tag: string): (props?: T | undefined) => HTMLElement;
+    export {};
+}
+declare namespace H {
+    const address: (a?: undefined) => HTMLElement;
+    const article: (a?: undefined) => HTMLElement;
+    const aside: (a?: undefined) => HTMLElement;
+    const footer: (a?: undefined) => HTMLElement;
+    const header: (a?: undefined) => HTMLElement;
+    const h1: (a?: undefined) => HTMLElement;
+    const h2: (a?: undefined) => HTMLElement;
+    const h3: (a?: undefined) => HTMLElement;
+    const h4: (a?: undefined) => HTMLElement;
+    const h5: (a?: undefined) => HTMLElement;
+    const h6: (a?: undefined) => HTMLElement;
+    const mainElement: (a?: undefined) => HTMLElement;
+    const nav: (a?: undefined) => HTMLElement;
+    const section: (a?: undefined) => HTMLElement;
+    const blockquote: (a?: undefined) => HTMLElement;
+    const dd: (a?: undefined) => HTMLElement;
+    const div: (a?: undefined) => HTMLElement;
+    const dl: (a?: undefined) => HTMLElement;
+    const dt: (a?: undefined) => HTMLElement;
+    const figcaption: (a?: undefined) => HTMLElement;
+    const figure: (a?: undefined) => HTMLElement;
+    const hr: (props?: HTypes.HTMLGlobalProps | undefined) => HTMLElement;
+    const li: (a?: undefined) => HTMLElement;
+    const ol: (a?: undefined) => HTMLElement;
+    const par: (a?: undefined) => HTMLElement;
+    const pre: (a?: undefined) => HTMLElement;
+    const ul: (a?: undefined) => HTMLElement;
+    const hlink: (a?: undefined) => HTMLElement;
+    const abbr: (a?: undefined) => HTMLElement;
+    const bold: (a?: undefined) => HTMLElement;
+    const bdi: (a?: undefined) => HTMLElement;
+    const bdo: (a?: undefined) => HTMLElement;
+    const br: (props?: HTypes.HTMLGlobalProps | undefined) => HTMLElement;
+    const cite: (a?: undefined) => HTMLElement;
+    const code: (a?: undefined) => HTMLElement;
+    const data: (a?: undefined) => HTMLElement;
+    const dfn: (a?: undefined) => HTMLElement;
+    const em: (a?: undefined) => HTMLElement;
+    const itl: (a?: undefined) => HTMLElement;
+    const kbd: (a?: undefined) => HTMLElement;
+    const quot: (a?: undefined) => HTMLElement;
+    const strk: (a?: undefined) => HTMLElement;
+    const samp: (a?: undefined) => HTMLElement;
+    const small: (a?: undefined) => HTMLElement;
+    const span: (a?: undefined) => HTMLElement;
+    const strong: (a?: undefined) => HTMLElement;
+    const sup: (a?: undefined) => HTMLElement;
+    const time: (a?: undefined) => HTMLElement;
+    const uline: (a?: undefined) => HTMLElement;
+    const mathvar: (a?: undefined) => HTMLElement;
+    const wbr: (props?: HTypes.HTMLGlobalProps | undefined) => HTMLElement;
+    const area: (a?: undefined) => HTMLElement;
+    const audio: (a?: undefined) => HTMLElement;
+    const img: (a?: undefined) => HTMLElement;
+    const map: (a?: undefined) => HTMLElement;
+    const track: (a?: undefined) => HTMLElement;
+    const video: (a?: undefined) => HTMLElement;
+    const embed: (a?: undefined) => HTMLElement;
+    const iframe: (a?: undefined) => HTMLElement;
+    const param: (a?: undefined) => HTMLElement;
+    const picture: (a?: undefined) => HTMLElement;
+    const portal: (a?: undefined) => HTMLElement;
+    const source: (a?: undefined) => HTMLElement;
+    const svg: (a?: undefined) => HTMLElement;
+    const mathElement: (a?: undefined) => HTMLElement;
+    const canvas: (a?: undefined) => HTMLElement;
+    const noscript: (a?: undefined) => HTMLElement;
+    const script: (a?: undefined) => HTMLElement;
+    const del: (a?: undefined) => HTMLElement;
+    const ins: (a?: undefined) => HTMLElement;
+    const caption: (a?: undefined) => HTMLElement;
+    const col: (a?: undefined) => HTMLElement;
+    const colgroup: (a?: undefined) => HTMLElement;
+    const table: (a?: undefined) => HTMLElement;
+    const tbody: (a?: undefined) => HTMLElement;
+    const td: (a?: undefined) => HTMLElement;
+    const tfoot: (a?: undefined) => HTMLElement;
+    const th: (a?: undefined) => HTMLElement;
+    const thead: (a?: undefined) => HTMLElement;
+    const tr: (a?: undefined) => HTMLElement;
+    const button: (a?: undefined) => HTMLElement;
+    const datalist: (a?: undefined) => HTMLElement;
+    const fieldset: (a?: undefined) => HTMLElement;
+    const form: (a?: undefined) => HTMLElement;
+    const input: (a?: undefined) => HTMLElement;
+    const label: (a?: undefined) => HTMLElement;
+    const legend: (a?: undefined) => HTMLElement;
+    const meter: (a?: undefined) => HTMLElement;
+    const optgroup: (a?: undefined) => HTMLElement;
+    const option: (a?: undefined) => HTMLElement;
+    const ouptut: (a?: undefined) => HTMLElement;
+    const orogress: (a?: undefined) => HTMLElement;
+    const select: (a?: undefined) => HTMLElement;
+    const textarea: (a?: undefined) => HTMLElement;
+    const details: (a?: undefined) => HTMLElement;
+    const dialogue: (a?: undefined) => HTMLElement;
+    const menu: (a?: undefined) => HTMLElement;
+    const summary: (a?: undefined) => HTMLElement;
+}
+declare namespace HTypes {
+    type EventAttr = string | ((e: Event) => void);
+    export interface HTMLGlobalProps extends HSpecialProps, HTMLEventProps {
+        [key: string]: any;
+        accesskey?: string;
+        class?: string;
+        contenteditable?: string;
+        dir?: string;
+        draggable?: boolean;
+        hidden?: boolean;
+        id?: string;
+        lang?: string;
+        spellcheck?: boolean;
+        style?: string;
+        tabindex?: number;
+        title?: string;
+        translate?: "yes" | "no";
+    }
+    export interface HTMLEventProps {
+        onabort?: EventAttr;
+        onautocomplete?: EventAttr;
+        onautocompleteerror?: EventAttr;
+        onblur?: EventAttr;
+        oncancel?: EventAttr;
+        oncanplay?: EventAttr;
+        oncanplaythrough?: EventAttr;
+        onchange?: EventAttr;
+        onclick?: EventAttr;
+        onclose?: EventAttr;
+        oncontextmenu?: EventAttr;
+        oncuechange?: EventAttr;
+        ondblclick?: EventAttr;
+        ondrag?: EventAttr;
+        ondragend?: EventAttr;
+        ondragenter?: EventAttr;
+        ondragexit?: EventAttr;
+        ondragleave?: EventAttr;
+        ondragover?: EventAttr;
+        ondragstart?: EventAttr;
+        ondrop?: EventAttr;
+        ondurationchange?: EventAttr;
+        onemptied?: EventAttr;
+        onended?: EventAttr;
+        onerror?: EventAttr;
+        onfocus?: EventAttr;
+        oninput?: EventAttr;
+        oninvalid?: EventAttr;
+        onkeydown?: EventAttr;
+        onkeypress?: EventAttr;
+        onkeyup?: EventAttr;
+        onload?: EventAttr;
+        onloadeddata?: EventAttr;
+        onloadedmetadata?: EventAttr;
+        onloadstart?: EventAttr;
+        onmousedown?: EventAttr;
+        onmouseenter?: EventAttr;
+        onmouseleave?: EventAttr;
+        onmousemove?: EventAttr;
+        onmouseout?: EventAttr;
+        onmouseover?: EventAttr;
+        onmouseup?: EventAttr;
+        onmousewheel?: EventAttr;
+        onpause?: EventAttr;
+        onplay?: EventAttr;
+        onplaying?: EventAttr;
+        onprogress?: EventAttr;
+        onratechange?: EventAttr;
+        onreset?: EventAttr;
+        onresize?: EventAttr;
+        onscroll?: EventAttr;
+        onseeked?: EventAttr;
+        onseeking?: EventAttr;
+        onselect?: EventAttr;
+        onshow?: EventAttr;
+        onsort?: EventAttr;
+        onstalled?: EventAttr;
+        onsubmit?: EventAttr;
+        onsuspend?: EventAttr;
+        ontimeupdate?: EventAttr;
+        ontoggle?: EventAttr;
+        onvolumechange?: EventAttr;
+        onwaiting?: EventAttr;
+    }
+    export interface HSpecialProps {
+        classes: (string | null | undefined)[];
+    }
+    export {};
+}
+declare namespace H {
+    const _eventPropNames: string[];
+}
