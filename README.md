@@ -85,7 +85,7 @@ This code is good, however the use of JSX syntax requires extra preprocessors an
 
 H.js is a simple library that fills the gap between `.replace`ing HTML template strings and installing gigabytes worth of `node_modules` just to display some text on your screen. H.js allows you to write declarative Javascript code that mimics the look and feel of HTML while allowing for better integration and control of your layouts, all with minimal setup and effort.
 
-In essence, all that H.js adds is syntactical sugar to the `document.createElement` method. H.js' provides element builder functions such as `H.div`, `H.img`, `H.span` and so on, for almost every [standard HTML element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) that, when called, return native DOM objects that can be manipulated as you would expect. 
+In essence, H.js just adds syntactical sugar to the `document.createElement` method. H.js' provides element builder functions such as `H.div`, `H.img`, `H.span` and so on, for almost every [standard HTML element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) that, when called, return native DOM objects that can be manipulated as you would expect. 
 
 ### Syntax
 
@@ -114,3 +114,6 @@ let aDivElement = H.div({class: "className});
 let aDivElement = H.div()
 ```
 
+## License
+
+This project is licensed under the terms of the MIT license. This means you are free to modify and distribute this library for both commercial and non-commerical use. More information can be found in the `LICENSE` file of this repository.
