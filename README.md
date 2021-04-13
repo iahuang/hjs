@@ -12,13 +12,17 @@ h.min.js    - A minified production build of H.js
 h.d.ts      - Typescript bindings for H.js
 ```
 
-Alternatively, you can use this CDN link:
+Alternatively, you can include this library via CDN:
 
-`https://cdn.jsdelivr.net/gh/iahuang/hjs/build/h.min.js`
+```js
+<script src="https://cdn.jsdelivr.net/gh/iahuang/hjs/build/h.min.js"></script>
+```
 
 ## What is H.js?
 
-H.js adds a single global variable called `H` to your project. The best way to describe what H.js does is to show an example of its use:
+H.js is a library to that allows you to write Javascript code that directly mimics HTML syntax. H.js also includes state management and UI features that allow for reactive and dynamic user interface programming.
+
+As web apps increase in complexity, the structure of your HTML and the supporting Javascript code become more and more intertwined. Here are a variety of other solutions for describing HTML elements in Javascript code, and the pros and cons of using them.
 
 ```js
 let el = H.div({ class: "big-text" })(
@@ -30,8 +34,6 @@ let el = H.div({ class: "big-text" })(
     })("Press me!")
 );
 ```
-
-As you can see, H.js is a way to include HTML syntax directly into your code. As web apps increase in complexity, the structure of your HTML and the supporting Javascript code become more and more intertwined. Here are a variety of other solutions for describing HTML elements in Javascript code, and the pros and cons of using them.
 
 ### Vanilla JS/Template Strings
 
@@ -85,7 +87,7 @@ This code is good, however the use of JSX syntax requires extra preprocessors an
 
 H.js is a simple library that fills the gap between `.replace`ing HTML template strings and installing gigabytes worth of `node_modules` just to display some text on your screen. H.js allows you to write declarative Javascript code that mimics the look and feel of HTML while allowing for better integration and control of your layouts, all with minimal setup and effort.
 
-In essence, H.js just adds syntactical sugar to the `document.createElement` method. H.js' provides element builder functions such as `H.div`, `H.img`, `H.span` and so on, for almost every [standard HTML element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) that, when called, return native DOM objects that can be manipulated as you would expect. 
+In essence, H.js just adds syntactical sugar to the `document.createElement` method. H.js provides element builder functions such as `H.div`, `H.img`, `H.span` and so on, for almost every [standard HTML element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) that, when called, return native DOM objects that can be manipulated as you would expect.
 
 ### Syntax
 
@@ -93,15 +95,12 @@ The syntax of these functions looks like this:
 
 ```js
 // implied that there are no attributes, only content
-let aDivElement = H.div("child1", "child2")
+let aDivElement = H.div("child1", "child2");
 ```
 
 ```js
 // explicitly defines both attributes and content
-let aDivElement = H.div({class: "className", attr2: value, attr3: value})(
-    "child1",
-    "child2"
-)
+let aDivElement = H.div({ class: "className", attr2: value, attr3: value })("child1", "child2");
 ```
 
 ```js
@@ -111,7 +110,20 @@ let aDivElement = H.div({class: "className});
 
 ```js
 // implied that there is neither attributes nor content
-let aDivElement = H.div()
+let aDivElement = H.div();
+```
+
+A larger example:
+
+```js
+let el = H.div({ class: "big-text" })(
+    H.span("Some text!"),
+    H.button({
+        onclick: (ev) => {
+            console.log("clicked!");
+        },
+    })("Press me!")
+);
 ```
 
 ## License
