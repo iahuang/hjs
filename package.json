@@ -2,6 +2,7 @@
     "devDependencies": {
         "uglify-js": "^3.13.4"
     },
+    "version": "0.1.0",
     "scripts": {
         "build": "tsc; npx uglifyjs build/h.js --compress --mangle -o build/h.min.js"
     }
